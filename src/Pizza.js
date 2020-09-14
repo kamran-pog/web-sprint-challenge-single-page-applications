@@ -75,6 +75,7 @@ const Pizza = () => {
                 ])})
             .catch(err =>  console.log('err:', err))
 
+
     };
 
     console.log('order:', order);
@@ -173,9 +174,12 @@ const Pizza = () => {
                     ></input>
                 </label>
 
-                <button name='submit' id='submit'>Order</button>
+               <button name='submit' id='submit'>Order</button>
+
 
             </form>
+
+            
         </div>
     );
 };
