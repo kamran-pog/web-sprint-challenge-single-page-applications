@@ -9,7 +9,7 @@ const orderSchema = yup.object().shape({
     olives: yup.boolean(),
     peppers: yup.boolean(),
     onions: yup.boolean(),
-    special: yup.string()
+    instructions: yup.string()
 });
 
 const Pizza = () => {
@@ -21,7 +21,7 @@ const Pizza = () => {
         olives: false,
         peppers: false,
         onions: false,
-        special: ""
+        instructions: ""
     });
 
     const [errors, setErrors] = useState({
@@ -31,7 +31,7 @@ const Pizza = () => {
         olives: "",
         peppers: "",
         onions: "",
-        special: ""
+        instructions: ""
     });
 
     const validate = (e) => {
