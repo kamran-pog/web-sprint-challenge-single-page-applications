@@ -28,12 +28,10 @@ const Pizza = () => {
     const [errors, setErrors] = useState({
         name: "",
         size: "",
-        toppings: {
-            mushrooms: "",
-            olives: "",
-            peppers: "",
-            onions: ""
-        },
+        mushrooms: "",
+        olives: "",
+        peppers: "",
+        onions: "",
         instructions: ""
     });
 
@@ -64,6 +62,7 @@ const Pizza = () => {
     };
 
     const [pizzaOrder, setPizzaOrder] = useState([]);
+    const [toppings, setToppings] = useState([]);
 
     const submitOrder = (e) => {
         e.preventDefault();
@@ -73,10 +72,10 @@ const Pizza = () => {
             .then(res => {
                 console.log('res:', res)
 
-                setPizzaOrder(
-                <p>Congrats, {res.data.name}! Your order for a {res.data.size} has been placed!</p>
-    
-                )
+             setPizzaOrder(
+                 ...pizzaOrder,
+                 res.data
+             )
             })
             .catch(err =>  console.log('err:', err))
 
@@ -85,6 +84,7 @@ const Pizza = () => {
     console.log('order:', order);
     console.log('pizza order:', pizzaOrder)
     console.log(order.name)
+    console.log(toppings)
     
 
     return (
@@ -187,8 +187,6 @@ const Pizza = () => {
             <button name='submit' id='submit'>Order</button>
 
             </form>
-
-            <h2>{pizzaOrder}</h2>
         </div>
     );
 };
