@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div>
+        <div class='banner'>
             <h2>Contact Information</h2>
             <p>Phone: 777-555-1234</p>
             <p>Email: lambdaeats@gmail.com</p>

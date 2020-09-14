@@ -3,8 +3,9 @@ import React from 'react';
 
 const Home = () => {
     return (
-        <div>
-            <h2>Welcome to Lambda Pizza!!!</h2>
+        <div class='banner'>
+            {/* <h2>Welcome to Lambda Pizza</h2> */}
+            <h2>Let us make you your perfect π</h2>
         </div>
     )};
 

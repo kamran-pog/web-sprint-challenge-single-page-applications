@@ -16,7 +16,7 @@ const App = () => {
           </nav>
         </header>
 
-      <div id='body'>
+      <div>
         {/* <h2>Let us make you your perfect π!</h2> */}
             <Route exact path='/' component={Home}/>
             <Route path='/pizza' component={Pizza}/>
