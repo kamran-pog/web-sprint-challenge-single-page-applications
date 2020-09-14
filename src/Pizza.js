@@ -4,7 +4,7 @@ import * as yup from 'yup';
 
 const orderSchema = yup.object().shape({
     name: yup.string().min(2, 'Name must be at least 2 characters long.'),
-    size: yup.string(),
+    size: yup.string().required('please, choose a size'),
     mushrooms: yup.boolean(),
     olives: yup.boolean(),
     peppers: yup.boolean(),
@@ -16,7 +16,7 @@ const Pizza = () => {
 
     const [order, setOrder] = useState({
         name: "",
-        size: "",
+        size: "small",
         mushrooms: false,
         olives: false,
         peppers: false,
@@ -72,11 +72,8 @@ const Pizza = () => {
                 setPizzaOrder([
                     ...pizzaOrder,
                         res.data
-                ])
-            .catch(err => {
-                console.log('err:', err)
-            });
-        });
+                ])})
+            .catch(err =>  console.log('err:', err))
     };
 
     console.log('order:', order);
@@ -105,17 +102,21 @@ const Pizza = () => {
                     id='size'
                     onChange={changeHandler}
                     value={order.size}>
-                        <option>
-                            Small
+                        <option
+                        value='small'>
+                            small
                         </option>
-                        <option>
-                            Medium
+                        <option
+                        value='medium'>
+                            medium
                         </option>
-                        <option>
-                           Large
+                        <option
+                        value='large'>
+                           large
                         </option>
-                        <option>
-                            Ginormous
+                        <option
+                        value='ginormous'>
+                            ginormous
                         </option>
                 </select><br></br>
 
