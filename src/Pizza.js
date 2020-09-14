@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
+import styled from 'styled-components';
+
+const Error = styled.p`
+    color: red;
+`
 
 const orderSchema = yup.object().shape({
-    name: yup.string().min(2, 'Name must be at least 2 characters long.'),
+    name: yup.string().required('Name is required').min(2, 'Name must be at least 2 characters long.'),
     size: yup.string().required('please, choose a size'),
     mushrooms: yup.boolean(),
     olives: yup.boolean(),
@@ -76,6 +81,7 @@ const Pizza = () => {
                  ...pizzaOrder,
                  res.data
              )
+
             })
             .catch(err =>  console.log('err:', err))
 
@@ -103,7 +109,8 @@ const Pizza = () => {
                 </label><br></br>
                 <hr></hr>
 
-                {errors.name.length > 0 ? <p>{errors.name}</p> : null}
+                {errors.name.length > 0 ? <Error>{errors.name}</Error> : null}
+
                 <h3>What size whould you like your pizza?</h3>
 
                     <select  name='size'
