@@ -60,12 +60,27 @@ const Pizza = () => {
         });
     };
 
+    const [pizzaOrder, setPizzaOrder] = useState([]);
+
     const submitOrder = (e) => {
         e.preventDefault();
+
+        axios
+            .post(`https://reqres.in/api/users`, order)
+            .then(res => {
+                console.log('res:', res)
+                setPizzaOrder([
+                    ...pizzaOrder,
+                        res.data
+                ])
+            .catch(err => {
+                console.log('err:', err)
+            });
+        });
     };
 
     console.log('order:', order);
-
+    console.log('pizza order:', pizzaOrder)
     
 
     return (
