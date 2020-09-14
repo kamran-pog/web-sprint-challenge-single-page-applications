@@ -12,7 +12,7 @@ const App = () => {
           <nav id='navLinks'>
             <Link to='/' class='links home'>Home</Link>
             <Link to='/pizza' class='links order'>Order</Link>
-            <Link to='/contact' class='links contact'>Contact</Link>
+            <Link to='/contact' class='links'>Contact</Link>
           </nav>
         </header>
 
