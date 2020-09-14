@@ -22,15 +22,18 @@ const Pizza = () => {
         peppers: false,
         onions: false,
         instructions: ""
+        
     });
 
     const [errors, setErrors] = useState({
         name: "",
         size: "",
-        mushrooms: "",
-        olives: "",
-        peppers: "",
-        onions: "",
+        toppings: {
+            mushrooms: "",
+            olives: "",
+            peppers: "",
+            onions: ""
+        },
         instructions: ""
     });
 
@@ -69,23 +72,26 @@ const Pizza = () => {
             .post(`https://reqres.in/api/users`, order)
             .then(res => {
                 console.log('res:', res)
-                setPizzaOrder([
-                    ...pizzaOrder,
-                        res.data
-                ])})
-            .catch(err =>  console.log('err:', err))
 
+                setPizzaOrder(
+                <p>Congrats, {res.data.name}! Your order for a {res.data.size} has been placed!</p>
+    
+                )
+            })
+            .catch(err =>  console.log('err:', err))
 
     };
 
     console.log('order:', order);
     console.log('pizza order:', pizzaOrder)
+    console.log(order.name)
     
 
     return (
-        <div>
-            <h2 class='banner'>Build your own pizza:</h2>
+        <div class='body'>
+            <h2>Build your own pizza:</h2>
             <form onSubmit={submitOrder}>
+            <h3>What is your name?</h3>
                 <label htmlFor='name'>
                     Name
                     <input 
@@ -95,11 +101,11 @@ const Pizza = () => {
                     value={order.name}
                     ></input>
                 </label><br></br>
+                <hr></hr>
 
                 {errors.name.length > 0 ? <p>{errors.name}</p> : null}
+                <h3>What size whould you like your pizza?</h3>
 
-                <label htmlFor='size'>
-                    Size
                     <select  name='size'
                     id='size'
                     onChange={changeHandler}
@@ -121,28 +127,31 @@ const Pizza = () => {
                             ginormous
                         </option>
                 </select><br></br>
+                <hr></hr>
 
-                </label>
+                <h3>What toppings would you like?</h3><br></br>
                 
                 <label htmlFor='mushrooms'>
                     Mushrooms
                     <input type='checkbox'
                      name='mushrooms'
                      id='mushrooms'
+                     class='topping'
                      onChange={changeHandler}
                      value={order.mushrooms}
                     ></input>
-                </label>
+                </label><br></br>
 
                 <label htmlFor='olives'>
                     Olives
                     <input type='checkbox' 
                     name='olives'
                     id='olives'
+                    class='topping'
                     onChange={changeHandler}
                     value={order.olives}
                     ></input>
-                </label>
+                </label><br></br>
 
                 <label htmlFor='peppers'>
                     Peppers
@@ -151,35 +160,35 @@ const Pizza = () => {
                     id='peppers'
                     onChange={changeHandler}
                     value={order.peppers}
+                    class='topping'
                     ></input>
-                </label>
+                </label><br></br>
 
                 <label htmlFor='onions'>
                     Onions
                     <input type='checkbox' 
                     name='onions'
                     id='onions'
+                    class='topping'
                     onChange={changeHandler}
                     value={order.onions}
                     ></input>
                 </label><br></br>
+                <hr></hr>
 
-                <label htmlFor='instructions'>
-                    Special instructions
+                <h3>Any special instructions?</h3><br></br>
                     <input type='textarea' 
                     name='instructions'
                     id='instructions'
                     onChange={changeHandler}
                     value={order.instructions}
-                    ></input>
-                </label>
+                    ></input><br></br>
 
-               <button name='submit' id='submit'>Order</button>
-
+            <button name='submit' id='submit'>Order</button>
 
             </form>
 
-            
+            <h2>{pizzaOrder}</h2>
         </div>
     );
 };

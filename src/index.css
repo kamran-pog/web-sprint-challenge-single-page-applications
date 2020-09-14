@@ -34,11 +34,38 @@ h1 {
 
 }
 
-.banner {
+.body {
   height: 300px;
   background-image: url('./Pizza.jpg');
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 50px;
+}
+
+form {
+  background-color: white;
+  width: 25%;
+  margin-left: 37.5%;
+}
+
+#instructions {
+  height: 50px;
+}
+
+#submit {
+  margin: 50px;
+  color:white;
+  background-color: black;
+  padding: 20px;
+}
+
+.topping {
+  margin-bottom: 20px;
+}
+
+.contact {
+  background: white;
+  width: 25%;
+  margin-left: 37.5%;
 }
