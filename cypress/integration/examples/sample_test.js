@@ -30,6 +30,7 @@ describe('can submit the form', function () {
             .type('Mr Cypress')
             .get('#submit')
             .click()
-            .get('orders')
+            .get('input#name')
+            .should('have.value', 'Mr Cypress')
 })
 })
