@@ -5,9 +5,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+ margin-right: 80%;
+}
+
+
+.links {
+  padding: 4px;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+}
+
+#navLinks {
+  margin: -50px 5px 10px 75%;
+
+}
+
+#body {
+  height: 400px;
+  background-image: url('./Pizza.jpg');
 }

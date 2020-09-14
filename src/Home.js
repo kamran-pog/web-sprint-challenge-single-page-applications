@@ -4,7 +4,7 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-            <h1>Welcome to Lambda Pizza!!!</h1>
+            <h2>Welcome to Lambda Pizza!!!</h2>
         </div>
     )};
 

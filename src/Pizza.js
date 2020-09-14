@@ -83,7 +83,7 @@ const Pizza = () => {
 
     return (
         <div>
-            <h1>Order your pizza!!!</h1>
+            <h2>Build your own pizza:</h2>
             <form onSubmit={submitOrder}>
                 <label htmlFor='name'>
                     Name
