@@ -82,6 +82,7 @@ const Pizza = () => {
                  res.data
              )
 
+
             })
             .catch(err =>  console.log('err:', err))
 
@@ -97,10 +98,12 @@ const Pizza = () => {
 
     };
 
+    
+
     console.log('order:', order);
     console.log('pizza order:', pizzaOrder)
     console.log(order.name)
-    console.log(toppings)
+    console.log('toppings:', toppings)
     
 
     return (
@@ -204,6 +207,8 @@ const Pizza = () => {
             <button name='submit' id='submit'>Order</button>
 
             </form>
+
+            <p id='congrats'>Congrats, {pizzaOrder.name}!  Your order has been received!</p>
         </div>
     );
 };
