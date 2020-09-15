@@ -60,6 +60,11 @@ form {
   padding: 20px;
 }
 
+#submit:disabled {
+  background-color: grey;
+  color: white;
+}
+
 .topping {
   margin-bottom: 20px;
 }

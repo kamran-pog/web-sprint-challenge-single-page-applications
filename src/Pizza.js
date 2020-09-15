@@ -27,7 +27,6 @@ const Pizza = () => {
         peppers: false,
         onions: false,
         instructions: ""
-        
     });
 
     const [errors, setErrors] = useState({
@@ -57,9 +56,17 @@ const Pizza = () => {
             })
     };
 
+    const [disableBtn, setDisableBtn] = useState(true);
+
     const changeHandler = (e) => {
         e.persist()
         validate(e)
+        if(e.target.type === 'text') {
+            if (e.target.value.length >= 2) {
+                setDisableBtn(false)
+            }
+    }
+
         let value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         setOrder({
             ...order, [e.target.name]: value
@@ -96,6 +103,8 @@ const Pizza = () => {
                 instructions: ""
             });
 
+            setDisableBtn(true)
+
     };
 
     
@@ -103,7 +112,7 @@ const Pizza = () => {
     console.log('order:', order);
     console.log('pizza order:', pizzaOrder)
     console.log(order.name)
-    console.log('toppings:', toppings)
+    // console.log('toppings:', toppings)
     
 
     return (
@@ -124,7 +133,7 @@ const Pizza = () => {
 
                 {errors.name.length > 0 ? <Error>{errors.name}</Error> : null}
 
-                <h3>What size whould you like your pizza?</h3>
+                <h3>What size would you like your pizza?</h3>
 
                     <select  name='size'
                     id='size'
@@ -204,7 +213,7 @@ const Pizza = () => {
                     value={order.instructions}
                     ></input><br></br>
 
-            <button name='submit' id='submit'>Order</button>
+            <button name='submit' id='submit' disabled={disableBtn}>Order</button>
 
             </form>
 
