@@ -9,7 +9,7 @@ const Error = styled.p`
 
 const orderSchema = yup.object().shape({
     name: yup.string().required('Name is required').min(2, 'Name must be at least 2 characters long.'),
-    size: yup.string().required('please, choose a size'),
+    size: yup.string(),
     mushrooms: yup.boolean(),
     olives: yup.boolean(),
     peppers: yup.boolean(),
@@ -85,6 +85,16 @@ const Pizza = () => {
             })
             .catch(err =>  console.log('err:', err))
 
+            setOrder({
+                name: "",
+                size: "",
+                mushrooms: "",
+                olives: "",
+                peppers: "",
+                onions: "",
+                instructions: ""
+            });
+
     };
 
     console.log('order:', order);
@@ -145,7 +155,7 @@ const Pizza = () => {
                      id='mushrooms'
                      class='topping'
                      onChange={changeHandler}
-                     value={order.mushrooms}
+                     checked={order.mushrooms}
                     ></input>
                 </label><br></br>
 
@@ -156,7 +166,7 @@ const Pizza = () => {
                     id='olives'
                     class='topping'
                     onChange={changeHandler}
-                    value={order.olives}
+                    checked={order.olives}
                     ></input>
                 </label><br></br>
 
@@ -166,7 +176,7 @@ const Pizza = () => {
                     name='peppers'
                     id='peppers'
                     onChange={changeHandler}
-                    value={order.peppers}
+                    checked={order.peppers}
                     class='topping'
                     ></input>
                 </label><br></br>
@@ -178,7 +188,7 @@ const Pizza = () => {
                     id='onions'
                     class='topping'
                     onChange={changeHandler}
-                    value={order.onions}
+                    checked={order.onions}
                     ></input>
                 </label><br></br>
                 <hr></hr>
